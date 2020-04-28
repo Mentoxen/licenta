@@ -1,20 +1,47 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
+import Hero from "../components/sliders/hero"
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import WhatWeGot from "../components/whatWeGot/WhatWeGot"
+import AboutUs from "../components/aboutUs/AboutUs"
+import Separator from "../components/separator/Separator"
 
-const IndexPage = () => (
+export const pageQuery = graphql` 
+  query IndexQuery {
+    allStrapiArticle {
+      edges {
+        node {
+          id
+          title
+          content
+          articleImage {
+            childImageSharp {
+              fixed {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+const IndexPage = (data) => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Hero />
+    <WhatWeGot/>
+    <AboutUs />
+    <Separator />
+    {
+      data.data.allStrapiArticle.edges.map((article) => {
+        return <div key={article.node.id}>
+          <h1><Link to={article.node.id}>{article.node.title}</Link></h1>
+          <p>{article.node.content}</p>
+          <img src={article.node.articleImage.childImageSharp.fixed.src} alt="" />
+        </div>
+      })}
   </Layout>
 )
 

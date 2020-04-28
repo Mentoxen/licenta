@@ -1,0 +1,36 @@
+//This file should be used inside the component in order to use helper classes or general style
+//Example you have the file Component.tsx
+//Import this file as import coreStyle from 'style.scss'
+// If your component require some custom style the create a new file inside the components folder and import the file
+//inside the component as following:
+// import componentStyle from 'assets/component/name-of-the-component.module.scss'
+//Also if you need to use the boostrap grid inside your component then import the gird as following:
+// import grid from 'assets/vendors/bootsrap-grid.module.scss';
+//
+// Example of a file imports:
+// import coreStyle from 'style.scss'
+// import grid from 'assets/vendors/bootsrap-grid.module.scss';
+// import componentStyle from 'assets/component/name-of-the-component.module.scss'
+
+// 1. Configuration and helpers
+@import 'abstracts/abstracts-imports';
+
+// 3. Base stuff
+@import 'base/base-import';
+
+// 4. Layout-related sections
+@import
+  'layout/sections',
+  'layout/header',
+  'layout/footer';
+
+// 5. Components
+@import
+'components/button',
+'components/hero',
+'components/whatWeGot',
+'components/separator';
+
+// 6. Page-specific styles
+@import
+  'pages/home';

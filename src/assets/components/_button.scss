@@ -1,0 +1,106 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.btn {
+  @include font($font-family: $primary-font, $color: $default-color, $font-size: 1.4rem, $font-weight: map_get($font_weights, 'bold'), $letter-spacing: .05rem);
+  border-radius: .3rem;
+  border-width: .2rem;
+  border-style: solid;
+  text-transform: uppercase;
+  padding: 1.7rem 3.5rem;
+  transition: all .3s ease;
+
+  &-small {
+    padding: 1rem 3rem;
+  }
+
+  &-default-outline {
+    border-color: $default-color;
+
+    &:hover {
+      color: $primary-color;
+      background-color: $default-color;
+    }
+  }
+
+  &-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: 0 0 2rem .1rem rgba($primary-color, .5);
+      background-color: $primary-color !important;
+      border-color: $primary-color !important;
+    }
+
+    &-outline {
+      border-color: $primary-color;
+      color: $primary-color;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $primary-color !important;
+        border-color: $primary-color !important;
+        color: $default-color;
+      }
+    }
+
+    &-faded {
+      background-color: $primary-color-light;
+      color: $primary-color;
+
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: 0 0 2rem .1rem rgba($primary-color, .5);
+        background-color: $primary-color !important;
+        border-color: $primary-color !important;
+        color: $default-color;
+      }
+    }
+  }
+
+  &-secondary {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: 0 0 2rem .1rem rgba($secondary-color, .5);
+      background-color: $secondary-color !important;
+      border-color: $secondary-color !important;
+    }
+
+    &-outline {
+      border-color: $secondary-color;
+      color: $secondary-color;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $secondary-color !important;
+        border-color: $secondary-color !important;
+        color: $default-color;
+      }
+    }
+
+    &-faded {
+      background-color: $secondary-color-light;
+      color: $secondary-color;
+
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: 0 0 2rem .1rem rgba($secondary-color, .5);
+        background-color: $secondary-color !important;
+        border-color: $secondary-color !important;
+        color: $default-color;
+      }
+    }
+  }
+}

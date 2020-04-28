@@ -1,0 +1,8 @@
+//This file should be imported only for the components style
+//For example you have the component Header.tsx that have some custom style inside the assets/components/ folder named Header.module.scss
+//and you want to import the variables, mixins and other stuffs in order to use them
+//Then you should import this file inside the assets/components/Header.module.scss as following:
+// Import '../imports.scss
+
+// 1. Configuration and helpers
+@import 'abstracts/abstracts-imports';

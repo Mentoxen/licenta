@@ -1,0 +1,45 @@
+// Use flex to vertically center the CHILD of element. Useful for elements which only have text node as child
+// (so no centering with line-height would be needed). But it works for any element with a child.
+
+.flex {
+  display: flex;
+
+  &-center {
+    &-vertical {
+      align-items: center;
+    }
+
+    &-horizontal {
+      justify-content: center;
+    }
+
+    &-total {
+      @extend .flex;
+      @extend .flex-center-vertical;
+      @extend .flex-center-horizontal;
+    }
+  }
+
+  &-space-between {
+    justify-content: space-between;
+  }
+
+  &-middle-between {
+    @extend .flex-space-between;
+    align-items: center;
+  }
+
+  &-end {
+    justify-content: flex-end;
+  }
+
+  &-direction {
+    &-column {
+      flex-direction: column;
+    }
+
+    &-row {
+      flex-direction: row;
+    }
+  }
+}

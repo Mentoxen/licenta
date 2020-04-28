@@ -1,0 +1,34 @@
+.section-separator {
+  position: relative;
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  margin-top: 12rem;
+
+  .container {
+    position: relative;
+    height: 50vh;
+    z-index: 1;
+  }
+
+  .row {
+    height: 100%;
+    align-items: center;
+  }
+
+  &::after,
+  &::before {
+    @include position(absolute, null, 0, null, 0);
+    content: '';
+    height: 20rem;
+    background: url('#{$dataGradient}') no-repeat;
+    background-color: $default-color;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &::before {
+    top: 0;
+    transform: rotate(-180deg) scaleX(-1);
+  }
+}

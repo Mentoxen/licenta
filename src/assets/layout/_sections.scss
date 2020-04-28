@@ -1,0 +1,19 @@
+.section- {
+  &title {
+    @include font($font-size: 4.5rem, $color: $content-color, $font-weight: map_get($font-weights, 'semibold'));
+
+    &-inverted {
+      @include font($font-size: 1.5rem, $color: $primary-color, $font-weight: map_get($font-weights, 'semibold'), $text-transform: uppercase);
+    }
+  }
+
+  &content {
+    @include font($font-family: $primary-font, $color: $text-color, $font-size: 1.4rem);
+    margin-bottom: 7rem;
+
+    &-inverted {
+      @include font($font-size: 4.5rem, $color: $content-color, $line-height: 1, $font-weight: map_get($font-weights, 'semibold'));
+      margin-bottom: 3rem;
+    }
+  }
+}

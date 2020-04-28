@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+.navigation {
+  .navbar-light  {
+    padding: 3.5rem 0;
+    background-color: $default-color;
+
+    .nav-link {
+      @include font($font-family: $primary-font, $color: $content-color, $font-size: 1.5rem, $font-weight: map_get($font_weights, 'semibold'));
+      transition: all .3s ease;
+      position: relative;
+      padding: 0 0 .5rem 0;
+
+      &::after {
+        @include position(absolute, null, null, 0, 0);
+        @include size($width: 0, $height: .2rem);
+        content: '';
+        transition: all .3s ease;
+        background: $primary-color;
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+        color: $primary-color;
+      }
+
+      & + .nav-link {
+        margin-left: 4.5rem;
+      }
+    }
+  }
+ }

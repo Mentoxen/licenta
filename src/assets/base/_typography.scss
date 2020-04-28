@@ -1,0 +1,13 @@
+/**
+ * Basic typography style for copy text
+ */
+
+//Default font properties to pe inherited in custom classes
+.base-font {
+  @include font($font-family: $primary-font, $line-height: 1.4);
+}
+
+.titles-base {
+  @include font($font-family: $primary-font, $font-weight: map_get($font-weights, 'bold'));
+  margin: 0;
+}
