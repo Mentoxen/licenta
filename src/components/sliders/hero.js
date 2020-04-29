@@ -24,7 +24,7 @@ const Hero = ()  => {
   `);
 
   return(
-    <section className="section-hero">
+    <section className="section-hero with-dots-as-line">
       <Container>
         <Row className="row row-eq-height">
           <Col lg="5" className="d-flex align-items-center pb-5">

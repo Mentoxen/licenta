@@ -10,33 +10,6 @@
     color: $text-color;
     margin-bottom: 3rem;
   }
-
-  .slick-dots {
-    @include display-flex($align-items: center, $justify-content: center);
-    @include position(absolute, calc(100% + 3rem), 0, null, 0);
-    padding: 0;
-    list-style-type: none;
-    display: flex !important;
-
-    li  {
-      button {
-        @include size($width: 3rem, $height: .3rem);
-        border: none;
-        background-color: $primary-color-light;
-        transition: all .3s ease;
-        outline: none;
-        color: transparent;
-      }
-
-      & + li {
-        margin-left: 1.5rem;
-      }
-    }
-
-    .slick-active button {
-      background-color: $primary-color;
-    }
-  }
 }
 
 .title-hero,

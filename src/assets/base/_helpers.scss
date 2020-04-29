@@ -47,4 +47,36 @@
   &DefaultColor {
     color: $default-color !important;
   }
+
+  &PrimaryColor {
+    color: $primary-color;
+  }
+
+  &SecondaryColor {
+    color: $secondary-color;
+  }
+
+  &ContentColor {
+    color: $content-color;
+  }
+
+
+  &BoxShadow {
+    box-shadow: $shadow;
+  }
+}
+
+.text- {
+  &base {
+    font-size: 1.5rem;
+  }
+  &xs {
+   font-size: 1.2rem;
+  }
+  &1xs {
+    font-size: 1.8rem;
+  }
+  &md {
+    font-size: 2.2rem;
+  }
 }

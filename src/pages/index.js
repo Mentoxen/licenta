@@ -6,6 +6,9 @@ import Layout from "../components/layout"
 import WhatWeGot from "../components/whatWeGot/WhatWeGot"
 import AboutUs from "../components/aboutUs/AboutUs"
 import Separator from "../components/separator/Separator"
+import Testimonials from "../components/testimonials/Testimonials"
+import LastNews from "../components/lastNews/LastNews"
+
 
 export const pageQuery = graphql` 
   query IndexQuery {
@@ -17,8 +20,8 @@ export const pageQuery = graphql`
           content
           articleImage {
             childImageSharp {
-              fixed {
-                ...GatsbyImageSharpFixed
+              fixed (width: 280, height: 210){
+                src
               }
             }
           }
@@ -28,20 +31,15 @@ export const pageQuery = graphql`
   }
 `
 
+
 const IndexPage = (data) => (
   <Layout>
     <Hero />
     <WhatWeGot/>
     <AboutUs />
     <Separator />
-    {
-      data.data.allStrapiArticle.edges.map((article) => {
-        return <div key={article.node.id}>
-          <h1><Link to={article.node.id}>{article.node.title}</Link></h1>
-          <p>{article.node.content}</p>
-          <img src={article.node.articleImage.childImageSharp.fixed.src} alt="" />
-        </div>
-      })}
+    <Testimonials />
+    <LastNews sliderData={data.data.allStrapiArticle.edges} />
   </Layout>
 )
 

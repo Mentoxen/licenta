@@ -25,8 +25,9 @@ module.exports = {
             `user`,
             `hero-slides`,
             `what-we-got-items`,
+            `testimonial-items`,
         ],
-        singleTypes: [`section-title`, `about-us`, `separator`],
+        singleTypes: [`section-title`, `about-us`, `separator`, `testimonials`, `ultimele-noutati`],
         queryLimit: 1000,
       }
     },

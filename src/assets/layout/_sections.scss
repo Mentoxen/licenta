@@ -16,4 +16,21 @@
       margin-bottom: 3rem;
     }
   }
+
+  &articles-preview {
+    .slick-track {
+      display: flex !important;
+      .slick-slide {
+        height: inherit;
+
+        > div {
+          height: 100%;
+        }
+      }
+    }
+
+    .article-content {
+      border: .2rem solid #ededed;
+    }
+  }
 }
