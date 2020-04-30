@@ -26,9 +26,14 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <footer className="footer pb-5 pt-5 mt-12 withBackgroundGray200">
+          <div className="text-center">
+            <p className="text-1xs">
+              <strong className="withContentColor">Licenta:</strong>
+              <strong className="withSecondaryColor"> Dascalu Iuliu - Daniel</strong>
+            </p>
+            <span>© {new Date().getFullYear()} </span>
+          </div>
         </footer>
     </>
   )

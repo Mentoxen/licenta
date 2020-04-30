@@ -33,7 +33,7 @@ const Hero = ()  => {
                 {
                   data.allStrapiHeroSlides.edges.map((slideData) => {
                     const {subtitle, title, content, id } = slideData.node;
-                    return <HeroSliderItem  title={title} subtitle={subtitle} content={content} />
+                    return <HeroSliderItem key={id} title={title} subtitle={subtitle} content={content} />
                   })
                 }
               </Slider>

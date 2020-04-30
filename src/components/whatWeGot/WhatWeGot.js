@@ -40,7 +40,7 @@ const WhatWeGot = () => {
         {
           edges.map((dataItem) => {
             const {id, title, Content, icon } = dataItem.node;
-            return <WhatWeGotContent content={Content} title={title} icon={icon.childImageSharp && icon.childImageSharp.fixed.src} />
+            return <WhatWeGotContent key={id} content={Content} title={title} icon={icon.childImageSharp && icon.childImageSharp.fixed.src} />
           })
         }
       </Row>

@@ -1,0 +1,50 @@
+.custom-input {
+  @include font($font-family: $secondary-font, $font-size: 1.5rem, $color: $content-color);
+  height: 5rem;
+  margin-bottom: 3.5rem;
+  border: .2rem solid $gray-100;
+  border-radius: 0;
+  transition: all .3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $gray-100;
+    box-shadow: none;
+  }
+}
+
+.form-group {
+  position: relative;
+
+  .error-message {
+    @include position(absolute, calc(100% + .5rem), null, null, 0);
+  }
+}
+
+textarea.custom-input {
+  height: 10rem;
+}
+
+.error- {
+  &message {
+    @include font($font-family: $primary-font, $color: $danger-color, $font-size: 1.4rem, $font-weight: map_get($font-weights, bold));
+    margin-bottom: 1.5rem;
+  }
+
+  &input {
+    border-color: $danger-color !important;
+    color: $danger-color !important;
+  }
+}
+
+.form- {
+  &error {
+    @include placeholder {
+      color: $danger-color;
+    }
+  }
+
+  &contact {
+    color: $primary-color;
+  }
+}

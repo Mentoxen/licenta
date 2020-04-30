@@ -126,3 +126,10 @@ $font-style: null) {
   flex-grow: $flex-grow;
   order: $order;
 }
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}

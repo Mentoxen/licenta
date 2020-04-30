@@ -43,6 +43,10 @@
   padding-top: 12rem;
 }
 
+.mt-12 {
+  margin-top: 12rem;
+}
+
 .with {
   &DefaultColor {
     color: $default-color !important;
@@ -63,6 +67,10 @@
 
   &BoxShadow {
     box-shadow: $shadow;
+  }
+
+  &BackgroundGray200 {
+    background-color: $gray-200;
   }
 }
 
