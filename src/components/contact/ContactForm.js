@@ -10,7 +10,7 @@ const ContactForm = () => {
   const [formState, setFormState] = useState({statusSuccess: false, message: ''});
 
   const onSubmit = (data, e) => {
-    axios.post(`${process.env.BE_URL}${API.CONTACT_FORM}`, {
+    axios.post(`https://licentaiuliu.herokuapp.com/${API.CONTACT_FORM}`, {
       headers: {
         'Content-Type': 'application/json',
       },
