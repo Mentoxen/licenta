@@ -24,9 +24,7 @@ const ContactDetails = () => {
     }
   `)
 
-
   const { edges } = data.allStrapiContactDetails;
-  console.log(edges)
 
   return (
     <div className="contact-details">

@@ -19,6 +19,7 @@ const ContactForm = () => {
       Mesaj: data.Mesaj
     }).then(function (response) {
       e.target.reset();
+      e.target.submit();
       setFormState({statusSuccess: true, message: 'The message was send!'});
     })
     .catch(function (e) {
