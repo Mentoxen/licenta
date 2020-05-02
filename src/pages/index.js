@@ -36,7 +36,14 @@ export const pageQuery = graphql`
 
 const IndexPage = (data) => (
   <Layout>
-    <Hero />
+      <!-- A little help for the Netlify bots if you're not using a SSG -->
+      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+          <input type="text" name="Nume" />
+          <input type="email" name="Email" />
+          <textarea name="Mesaj" />
+      </form>
+
+      <Hero />
     <WhatWeGot/>
     <AboutUs />
     <Separator />
