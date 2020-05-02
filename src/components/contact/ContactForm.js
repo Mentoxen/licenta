@@ -33,7 +33,12 @@ const ContactForm = () => {
   const {statusSuccess, message} = formState;
 
   return (
-    <form className="form-contact" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="form-contact"
+      onSubmit={handleSubmit(onSubmit)}
+      action="POST"
+      data-netlify={true}
+    >
       { message && <div className={`alert alert-${statusSuccess ? 'success' : 'danger'}`}>{message}</div>}
 
       <FormField name="Nume" errors={errors.Nume} register={register (formFieldText)} onChange={handleChange}/>
