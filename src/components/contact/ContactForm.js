@@ -39,8 +39,9 @@ const ContactForm = () => {
       method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
+      name="contact"
     >
-      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="bot-field" value="contact" />
       { message && <div className={`alert alert-${statusSuccess ? 'success' : 'danger'}`}>{message}</div>}
 
       <FormField name="Nume" errors={errors.Nume} register={register (formFieldText)} onChange={handleChange}/>
