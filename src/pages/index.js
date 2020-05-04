@@ -36,7 +36,13 @@ export const pageQuery = graphql`
 
 const IndexPage = (data) => (
   <Layout>
-      <form method="post" name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <form
+        method="post"
+        data-netlify-honeypot="bot-field"
+        data-netlify="true"
+        name="contact"
+        hidden
+      >
           <input type="text" name="Nume" />
           <input type="email" name="Email" />
           <textarea name="Mesaj" />
