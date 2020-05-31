@@ -15,10 +15,10 @@ const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
 
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const getArticles = makeRequest(graphql, `
+  const getArticles = await makeRequest(graphql, `
     {
       allStrapiArticle {
         edges {
@@ -41,6 +41,29 @@ exports.createPages = ({ actions, graphql }) => {
     })
   });
 
+  const getCities = await makeRequest(graphql, `
+    {
+      allStrapiOras {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+    `).then(result => {
+    // Create pages for each article.
+    result.data.allStrapiOras.edges.forEach(({ node }) => {
+      createPage({
+        path: `orase/${node.id}`,
+        component: path.resolve(`src/templates/templateAllCities.js`),
+        context: {
+          id: node.id,
+        },
+      })
+    })
+  });
+
   // Query for articles nodes to use in creating pages.
-  return getArticles;
+  return {getArticles, getCities};
 };

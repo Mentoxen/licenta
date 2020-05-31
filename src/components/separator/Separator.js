@@ -2,7 +2,8 @@ import React from "react"
 
 import { Col, Container, Row } from "react-bootstrap"
 import SectionTitle from "../inc/SectionTitle"
-import { graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import { ORASE } from "../settings"
 
 const Separator = () => {
 
@@ -31,7 +32,7 @@ const Separator = () => {
             />
           </Col>
           <Col lg={2}>
-            <a href="#" className="btn btn-default-outline">{ctaText}</a>
+            <Link to={ORASE} className="btn btn-default-outline">{ctaText}</Link>
           </Col>
         </Row>
       </Container>

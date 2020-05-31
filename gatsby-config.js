@@ -1,3 +1,28 @@
+const oraseQuery = `
+{
+  allStrapiOras {
+    edges {
+      node {
+        id
+        nume
+        imagine_oras {
+          url
+        }        
+      }
+    }
+  }
+}
+`;
+
+const queries = [
+  {
+    query: oraseQuery,
+    transformer: ({ data }) => data.allStrapiOras.edges.map(({ node }) => node), // optional
+    indexName: 'orase', // overrides main index name, optional
+    matchFields: ['slug', 'modified'], // Array<String> overrides main match fields, optional
+  },
+];
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -5,6 +30,17 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: 'MF4O1MIFAQ',
+        apiKey: 'd7ae534a23b47062fb746faefd4b0b28',
+        indexName: `orase`,
+        queries,
+        enablePartialUpdates: true,
+        matchFields: ['slug', 'modified'],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -27,6 +63,9 @@ module.exports = {
             `what-we-got-items`,
             `testimonial-items`,
             `contact-details`,
+            `oras`,
+            `restaurants`,
+            `foods`,
         ],
         singleTypes: [`section-title`, `about-us`, `separator`, `testimonials`, `ultimele-noutati`],
         queryLimit: 1000,

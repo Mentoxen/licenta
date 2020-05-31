@@ -19,7 +19,6 @@ const ContactForm = () => {
       Mesaj: data.Mesaj
     }).then(function (response) {
       e.target.reset();
-      e.target.submit();
       setFormState({statusSuccess: true, message: 'The message was send!'});
     })
     .catch(function (e) {
@@ -38,11 +37,7 @@ const ContactForm = () => {
       className="form-contact"
       onSubmit={handleSubmit(onSubmit)}
       method="post"
-      data-netlify-honeypot="bot-field"
-      data-netlify="true"
-      name="contact"
     >
-      <input type="hidden" name="form-name" value="contact" />
       { message && <div className={`alert alert-${statusSuccess ? 'success' : 'danger'}`}>{message}</div>}
 
       <FormField name="Nume" errors={errors.Nume} register={register (formFieldText)} onChange={handleChange}/>
@@ -60,3 +55,4 @@ const ContactForm = () => {
 }
 
 export default ContactForm
+

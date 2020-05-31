@@ -36,3 +36,9 @@ export const formFieldEmail = {
 export const API = {
   CONTACT_FORM : 'contacts'
 }
+
+
+
+//routes
+
+export const ORASE = 'orase/'

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import "../assets/style.scss";
 
-
 const ArticleTemplate = ({ data }) => (
   <Layout>
     <h1>{data.strapiArticle.title}</h1>
