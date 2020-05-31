@@ -47,6 +47,14 @@ exports.createPages = async ({ actions, graphql }) => {
         edges {
           node {
             id
+            nume
+            imagine_oras {
+              url
+            }
+            restaurants {
+              id
+              nume
+            }
           }
         }
       }
@@ -61,7 +69,17 @@ exports.createPages = async ({ actions, graphql }) => {
           id: node.id,
         },
       })
-    })
+
+      node.restaurants.forEach(restaurant => {
+        createPage({
+          path: `orase/${node.id}/${restaurant.nume}`,
+          component: path.resolve(`src/templates/templateRestaurant.js`),
+          context: {
+            id: restaurant.nume,
+          },
+        })
+      })
+    });
   });
 
   // Query for articles nodes to use in creating pages.

@@ -1,0 +1,25 @@
+.inner-page {
+  padding-top: 12rem;
+
+  &-banner {
+    position: relative;
+
+    &::after {
+      @include position(absolute, 0, 0, 0, 0);
+      content: '';
+      background: rgba($default-text-color, .4);
+    }
+
+    img {
+      @include size($width: 100%, $height: 45rem);
+      object-fit: cover;
+    }
+
+    .section-title {
+      @include position(absolute, 50%, null, null, 50%);
+      transform: translate(-50%, -50%);
+      color: $default-color;
+      z-index: 1;
+    }
+  }
+}

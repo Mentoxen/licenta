@@ -26,6 +26,8 @@
   'layout/sliders',
   'layout/forms';
 
+@import 'vendors/algolia';
+
 // 5. Components
 @import
 'components/button',
@@ -35,4 +37,5 @@
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/home',
+  'pages/inner_page';

@@ -1,0 +1,63 @@
+.ais-Hits-list {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1.5rem;
+
+  .ais-Hits-item {
+    padding: 0 1.5rem;
+    margin-bottom: 6rem;
+    text-align: center;
+    flex: 0 0 33.333%;
+  }
+
+  img {
+    max-height: 25rem;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.ais-SearchBox {
+  text-align: center;
+}
+
+.ais-SearchBox-form {
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 60%;
+  margin-bottom: 10rem;
+
+  input {
+    @include size($width: 100%, $height: 8rem);
+    height: 8rem;
+    border: .2rem solid $gray-100;
+    padding-left: 1.5rem;
+    border-radius: 5rem;
+    outline: none;
+  }
+
+  .ais-SearchBox-submit {
+    @include position(absolute, 50%, .5rem, 0);
+    @include size($height: 7rem, $width: 15rem);
+    background: $primary-color;
+    border: none;
+    border-radius: 5rem;
+    transform: translateY(-50%);
+  }
+
+  svg {
+    @include size($width: 2rem, $height: 2rem);
+
+    path {
+      fill: $default-color;
+    }
+  }
+
+  .ais-SearchBox-reset {
+    display: none;
+  }
+}
