@@ -1,29 +1,54 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import "../assets/style.scss";
+import { Col, Container, Nav, NavItem, Row, Tab, TabContainer, TabContent, TabPane, Tabs } from "react-bootstrap"
+import RenderRestaurants from "../components/render/RenderRestaurants"
+import TransportTabs from "../components/transport/TransportTabs"
 
 const OrasTemplate = ({ data }) => {
-  const {nume, imagine_oras, restaurants, id} = data.strapiOras;
+  const {nume, imagine_oras, restaurants, id, transport, transport_privats} = data.strapiOras;
+  console.log(data)
 
   return (
     <Layout>
       <section className="inner-page">
         <div className="inner-page-banner" >
           {
-            imagine_oras.map((imagine) => {
+            imagine_oras && imagine_oras.map((imagine) => {
               return <img src={imagine.url} alt="" />
             })
           }
           <h1 className="section-title">{nume}</h1>
         </div>
-        <div className="container pt-12">
-          {
-            restaurants.map((restaurant) => {
-              return <Link to={`orase/${id}/${restaurant.nume}`}>{restaurant.nume}</Link>
-            })
-          }
-        </div>
+
+        <TabContainer id="left-tabs-example" defaultActiveKey="first">
+          <Container>
+            <Row>
+              <Col sm={3}>
+                <Nav variant="pills" className="flex-column">
+                  <NavItem>
+                    <Nav.Link eventKey="first">Locuri</Nav.Link>
+                  </NavItem>
+                  <Nav.Item>
+                    <Nav.Link eventKey="second">Transport</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Col>
+              <Col sm={9}>
+                <TabContent>
+                  <TabPane eventKey="first">
+                      <RenderRestaurants restaurants={restaurants} urlId={id} />
+                  </TabPane>
+                  <TabPane eventKey="second">
+                    <TransportTabs transportLocal={transport} transportPrivat={transport_privats} />
+                  </TabPane>
+                </TabContent>
+              </Col>
+            </Row>
+          </Container>
+        </TabContainer>
+
       </section>
     </Layout>
   )
@@ -40,8 +65,35 @@ export const query = graphql`
         url
       }
       restaurants {
-        nume
         id
+        nume
+        descriere
+        banner {
+          url
+        }
+        tags {
+          tag
+        }
+      }
+      transport {
+        linie {
+          nume_linie
+          statii {
+            nume_statie
+            ora_statie
+          }
+        }
+      }
+      transport_privats {
+        Taxi {
+          nume
+          web
+          contact {
+            adresa
+            email
+            phone
+          }
+        }
       }
     }
   }

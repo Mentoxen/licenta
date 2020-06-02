@@ -1,0 +1,60 @@
+.card {
+  box-shadow: $shadow;
+  border: none;
+  margin-bottom: 3rem;
+
+  img {
+    @include size($max-width: 100%, $max-height: 8rem);
+    object-fit: cover;
+    align-self: center;
+  }
+
+  &-description {
+    margin-bottom: 3rem;
+  }
+
+  &-title {
+    @include font($font-size: 2rem, $font-weight: map_get($font-weights, 'bold'), $color: $content-color);
+    margin-bottom: 1.5rem;
+  }
+
+  &-contact {
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    img {
+      @include size($width: auto, $height: auto);
+      margin-right: 1.5rem;
+    }
+  }
+
+  &-orar {
+    li {
+      margin-bottom: .5rem;
+    }
+
+    span {
+      @include font($font-weight: map_get($font-weights, 'medium'), $color: $content-color);
+      display: inline-block;
+      width: 33%;
+    }
+  }
+
+  &-tags {
+    display: flex;
+    flex-wrap: wrap;
+    color: $default-color;
+    margin-bottom: .5rem;
+
+    li {
+      @include font($line-height: 1, $font-size: 1.2rem, $font-weight: map_get($font-weights, 'semibold'));
+      padding: .5rem;
+      border-radius: 2rem;
+      margin-right: .5rem;
+      margin-bottom: 1rem;
+      background: $primary-color;
+    }
+  }
+}
