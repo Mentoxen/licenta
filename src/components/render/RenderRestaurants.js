@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { TabPane } from "react-bootstrap"
 
 const RenderRestaurants = ({restaurants, urlId}) => {
   const textPreview = (str) => str.length > 100 ? str.substring(0, 100) + "..." : str;
@@ -15,8 +14,8 @@ const RenderRestaurants = ({restaurants, urlId}) => {
                 <img src={restaurant.banner[0].url} className="img-fluid" alt="" />
                 <div className="card-body">
                   <ul className="list-unstyled card-tags">
-                    {restaurant.tags && restaurant.tags.map((tag) => {
-                      return <li>
+                    {restaurant.tags && restaurant.tags.map((tag, index) => {
+                      return <li key={index}>
                         {tag.tag}
                       </li>
                     })}

@@ -8,15 +8,14 @@ import TransportTabs from "../components/transport/TransportTabs"
 
 const OrasTemplate = ({ data }) => {
   const {nume, imagine_oras, restaurants, id, transport, transport_privats} = data.strapiOras;
-  console.log(data)
 
   return (
     <Layout>
       <section className="inner-page">
         <div className="inner-page-banner" >
           {
-            imagine_oras && imagine_oras.map((imagine) => {
-              return <img src={imagine.url} alt="" />
+            imagine_oras && imagine_oras.map((imagine, index) => {
+              return <img src={imagine.url} key={index} alt="" />
             })
           }
           <h1 className="section-title">{nume}</h1>
@@ -41,7 +40,7 @@ const OrasTemplate = ({ data }) => {
                       <RenderRestaurants restaurants={restaurants} urlId={id} />
                   </TabPane>
                   <TabPane eventKey="second">
-                    <TransportTabs transportLocal={transport} transportPrivat={transport_privats} />
+                    <TransportTabs transportLocal={transport} urlId={id} transportPrivat={transport_privats} />
                   </TabPane>
                 </TabContent>
               </Col>
@@ -85,14 +84,20 @@ export const query = graphql`
         }
       }
       transport_privats {
-        Taxi {
-          nume
+        id
+        nume
+        descriere
+        photos {
+          url
+        }
+        contact {
+          adresa
+          email
           web
-          contact {
-            adresa
-            email
-            phone
-          }
+        }
+        phone {
+          number
+          provider
         }
       }
     }

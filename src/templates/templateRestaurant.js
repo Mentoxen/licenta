@@ -6,7 +6,7 @@ import ContactCard from "../components/contact/ContactCard"
 
 const RestaurantTemplate = ({ data }) => {
   const {nume, banner, descriere, tags, orar, Contact} = data.strapiRestaurants;
-  console.log(data)
+
   return (
     <Layout>
       <section className="inner-page">
@@ -36,8 +36,8 @@ const RestaurantTemplate = ({ data }) => {
                   <h2 className="card-title">Orar</h2>
                   <ul className="list-unstyled card-orar">
                     {
-                      orar && orar.map((program) => {
-                        return <li><span>{program.Zile}:</span> {program.ora}</li>
+                      orar && orar.map((program, index) => {
+                        return <li key={index}><span>{program.Zile}:</span> {program.ora}</li>
                       })
                     }
                   </ul>

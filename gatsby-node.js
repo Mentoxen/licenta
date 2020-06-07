@@ -55,32 +55,46 @@ exports.createPages = async ({ actions, graphql }) => {
               id
               nume
             }
+            transport_privats {
+              id
+              nume
+            }
           }
         }
       }
     }
     `).then(result => {
-    // Create pages for each article.
-    result.data.allStrapiOras.edges.forEach(({ node }) => {
-      createPage({
-        path: `orase/${node.id}`,
-        component: path.resolve(`src/templates/templateAllCities.js`),
-        context: {
-          id: node.id,
-        },
-      })
-
-      node.restaurants.forEach(restaurant => {
+      // Create pages for each article.
+      result.data.allStrapiOras.edges.forEach(({ node }) => {
         createPage({
-          path: `orase/${node.id}/${restaurant.nume}`,
-          component: path.resolve(`src/templates/templateRestaurant.js`),
+          path: `orase/${node.id}`,
+          component: path.resolve(`src/templates/templateAllCities.js`),
           context: {
-            id: restaurant.nume,
+            id: node.id,
           },
         })
-      })
+
+        node.restaurants.forEach(restaurant => {
+          createPage({
+            path: `orase/${node.id}/${restaurant.nume}`,
+            component: path.resolve(`src/templates/templateRestaurant.js`),
+            context: {
+              id: restaurant.nume,
+            },
+          })
+        })
+
+        node.transport_privats.forEach(taxi => {
+          createPage({
+            path: `orase/${node.id}/${taxi.nume}`,
+            component: path.resolve(`src/templates/templateTaxi.js`),
+            context: {
+              id: taxi.nume,
+            },
+          })
+        });
+      });
     });
-  });
 
   // Query for articles nodes to use in creating pages.
   return {getArticles, getCities};

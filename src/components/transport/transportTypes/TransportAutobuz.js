@@ -2,22 +2,22 @@ import React from "react"
 import bus from '../../../images/bus.png';
 
 const TransportAutobuz = ({ transport }) => {
-  console.log(transport)
+
   return (
     <ul className="list-unstyled transport-list">
-      {transport && transport.linie.map((linie) => {
+      {transport && transport.linie.map((linie, index) => {
 
         return (
-          <li>
+          <li key={index}>
             <h2 className="card-title">{linie.nume_linie}</h2>
             <ul className="list-unstyled transport-statii">
               <li className="transport-icon-wrapper">
                 <img src={bus} alt="" className="transport-icon" />
               </li>
             {
-              linie.statii.map((linieTranport) => {
+              linie.statii.map((linieTranport, index) => {
                 return(
-                  <li>{linieTranport.nume_statie} {linieTranport.ora_statie && <span>: {linieTranport.ora_statie}</span>}</li>
+                  <li key={index}>{linieTranport.nume_statie} {linieTranport.ora_statie && <span>: {linieTranport.ora_statie}</span>}</li>
                 )
               })
             }

@@ -66,6 +66,7 @@ module.exports = {
             `oras`,
             `restaurants`,
             `foods`,
+            `transport-privats`
         ],
         singleTypes: [`section-title`, `about-us`, `separator`, `testimonials`, `ultimele-noutati`],
         queryLimit: 1000,
