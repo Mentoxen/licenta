@@ -9,6 +9,9 @@ import Separator from "../components/separator/Separator"
 import Testimonials from "../components/testimonials/Testimonials"
 import LastNews from "../components/lastNews/LastNews"
 import Contact from "../components/contact/Contact"
+import Registration from "../components/auth/Registration"
+import Login from "../components/auth/Login"
+import { StateProvider } from "../components/auth/store"
 
 
 export const pageQuery = graphql` 
@@ -35,13 +38,14 @@ export const pageQuery = graphql`
 
 const IndexPage = (data) => (
   <Layout>
-    <Hero />
-    <WhatWeGot/>
-    <AboutUs />
-    <Separator />
-    <Testimonials />
-    <LastNews sliderData={data.data.allStrapiArticle.edges} />
-    <Contact />
+      <Hero />
+      <WhatWeGot/>
+      <AboutUs />
+      <Separator />
+      <Testimonials />
+      <LastNews sliderData={data.data.allStrapiArticle.edges} />
+      <Contact />
+      <Registration />
   </Layout>
 )
 

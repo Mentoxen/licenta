@@ -20,6 +20,13 @@ export const formFieldText = {
   }
 }
 
+export const formFieldPassword = {
+  required: {
+    value: true,
+    message: 'This filed is required'
+  }
+}
+
 export const formFieldEmail = {
   required: {
     value: true,

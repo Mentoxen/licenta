@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import { StateProvider } from "./auth/store"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <StateProvider>
       <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
         <footer className="footer pb-5 pt-5 mt-12 withBackgroundGray200">
@@ -35,7 +36,7 @@ const Layout = ({ children }) => {
             <span>© {new Date().getFullYear()} </span>
           </div>
         </footer>
-    </>
+    </StateProvider>
   )
 }
 

@@ -34,3 +34,40 @@
     }
   }
 }
+
+.action-page {
+  min-height: calc(100vh - 36rem);
+  display: flex;
+  align-items: center;
+
+  .row {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  form {
+    @include size($max-width: 40rem, $width: 100%);
+  }
+
+  form, img {
+    margin: 0 auto;
+  }
+
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-input {
+    @include font($color: $content-color, $font-weight: map_get($font-weights, 'medium'));
+    margin-bottom: 3rem;
+    border-radius: 3rem;
+    background-color: $gray-200;
+    padding-left: 1.5rem;
+  }
+}
+
