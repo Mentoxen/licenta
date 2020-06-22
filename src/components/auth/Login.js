@@ -22,9 +22,12 @@ const Login = () => {
         identifier: data.identifier,
         password: data.password
       }).then(function(response) {
-        e.target.reset();
+      console.log(response)
+      e.target.reset();
         setFormState({statusSuccess: true, message: 'The message was send!'});
-        localStorage.setItem('token', response.data.jwt);
+      console.log(response)
+      localStorage.setItem('token', response.data.jwt);
+        localStorage.setItem('user', response.data.user.id);
         dispatch({type: 'authenticate'});
         navigate('/app/admin');
     }).catch(function(e) {

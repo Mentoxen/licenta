@@ -11,7 +11,7 @@ const RestaurantTemplate = ({ data }) => {
     <Layout>
       <section className="inner-page">
         <div className="inner-page-product-banner">
-          <img src={ banner[0].url } alt="" className="img-fluid" />
+          <img src={ banner.length && banner[0].url } alt="" className="img-fluid" />
           <h1 className="section-title">{nume}</h1>
         </div>
         <div className="container">

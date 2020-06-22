@@ -41,7 +41,8 @@ export const formFieldEmail = {
 
 //APIS
 export const API = {
-  CONTACT_FORM : 'contacts'
+  CONTACT_FORM : 'contacts',
+  RESTAURANTS: 'restaurants'
 }
 
 

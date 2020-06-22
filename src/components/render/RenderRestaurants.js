@@ -11,7 +11,8 @@ const RenderRestaurants = ({restaurants, urlId}) => {
           return (
             <li key={restaurant.id} className="col-md-4">
               <div className="card">
-                <img src={restaurant.banner[0].url} className="img-fluid" alt="" />
+                {console.log(restaurant)}
+                <img src={restaurant.banner.length && restaurant.banner[0].url} className="img-fluid" alt="" />
                 <div className="card-body">
                   <ul className="list-unstyled card-tags">
                     {restaurant.tags && restaurant.tags.map((tag, index) => {

@@ -12,6 +12,7 @@ const Header = ({ siteTitle }) => {
   const logout = () => {
     console.log("logout");
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     dispatch({type: 'signOut'});
   }
   console.log(state.isAuthenticated)
